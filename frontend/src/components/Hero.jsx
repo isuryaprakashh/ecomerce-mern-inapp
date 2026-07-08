@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Leaf } from 'lucide-react';
-import heroImage from '../assets/hero-image-pc.png';
+import heroImage from '../assets/hero-image-pc.webp';
 
 export default function Hero({ onExploreClick }) {
   return (
