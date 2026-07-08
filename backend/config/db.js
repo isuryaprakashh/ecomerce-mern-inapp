@@ -76,6 +76,11 @@ export const seedProducts = [
 ];
 
 export const connectDB = async () => {
+  if (mongoose.connection.readyState === 1) {
+    isMongoConnected = true;
+    return true;
+  }
+
   const dbUri = process.env.MONGODB_URI;
   if (!dbUri) {
     console.warn("⚠️ MONGODB_URI is not defined in env. Running in MEMORY-ONLY mode.");
@@ -115,4 +120,11 @@ export const connectDB = async () => {
   }
 };
 
-export const checkMongoConnection = () => isMongoConnected;
+export const checkMongoConnection = () => {
+  if (mongoose.connection.readyState === 1) {
+    return true;
+  }
+  // Try to connect asynchronously in the background so future requests can succeed
+  connectDB().catch(e => console.error("On-demand DB connection failed:", e.message));
+  return false;
+};
