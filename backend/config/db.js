@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import User from '../models/User.js';
+import Product from '../models/Product.js';
+import Order from '../models/Order.js';
 
 let isMongoConnected = false;
 
@@ -87,7 +89,6 @@ export const connectDB = async () => {
     isMongoConnected = true;
 
     // Seed database if empty
-    const Product = mongoose.model('Product');
     const count = await Product.countDocuments();
     if (count === 0) {
       await Product.insertMany(seedProducts);
@@ -95,7 +96,6 @@ export const connectDB = async () => {
     }
 
     // Seed default admin if none exists
-    const User = mongoose.model('User');
     const adminCount = await User.countDocuments({ role: 'admin' });
     if (adminCount === 0) {
       await User.create({
