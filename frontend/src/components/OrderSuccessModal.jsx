@@ -23,7 +23,7 @@ export default function OrderSuccessModal({ orderDetails, onClose }) {
         <div className="success-meta">
           <div className="success-meta-row" style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '8px', marginBottom: '8px' }}>
             <span className="success-meta-label">Amount Paid</span>
-            <span className="success-meta-val" style={{ color: 'var(--success-color)', fontSize: '1rem' }}>${amount.toFixed(2)}</span>
+            <span className="success-meta-val" style={{ color: 'var(--success-color)', fontSize: '1rem' }}>₹{amount}</span>
           </div>
           
           <div className="success-meta-row">

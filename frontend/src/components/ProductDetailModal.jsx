@@ -38,7 +38,7 @@ export default function ProductDetailModal({ product, onClose, onAddToCart }) {
           <h2 className="product-detail-name">{product.name}</h2>
           
           <div className="product-detail-price-row">
-            <span className="product-detail-price">${product.price}</span>
+            <span className="product-detail-price">₹{product.price}</span>
             <span style={{ fontSize: '0.85rem', color: 'var(--success-color)', fontWeight: 500 }}>
               ✓ In Stock & Fresh
             </span>
@@ -87,7 +87,7 @@ export default function ProductDetailModal({ product, onClose, onAddToCart }) {
                 </>
               ) : (
                 <>
-                  <ShoppingBag size={18} /> Add to Cart — ${(product.price * quantity).toFixed(2)}
+                  <ShoppingBag size={18} /> Add to Cart — ₹{product.price * quantity}
                 </>
               )}
             </button>

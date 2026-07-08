@@ -16,7 +16,7 @@ export default function CheckoutModal({ cartItems, onClose, onOrderComplete }) {
   const [mockPaymentState, setMockPaymentState] = useState(null); // 'selecting', 'processing'
 
   const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  const shipping = subtotal >= 75 ? 0 : 5.99;
+  const shipping = subtotal >= 5000 ? 0 : 350;
   const total = subtotal + shipping;
 
   const handleInputChange = (e) => {
@@ -322,16 +322,16 @@ export default function CheckoutModal({ cartItems, onClose, onOrderComplete }) {
               <div className="checkout-summary-box">
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '8px' }}>
                   <span>Items Total</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₹{subtotal}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '8px' }}>
                   <span>Standard Shipping</span>
-                  <span>{shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? "FREE" : `₹${shipping}`}</span>
                 </div>
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-color)', margin: '8px 0' }} />
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1rem', fontWeight: 600 }}>
                   <span>Total Amount</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>₹{total}</span>
                 </div>
               </div>
 
@@ -347,7 +347,7 @@ export default function CheckoutModal({ cartItems, onClose, onOrderComplete }) {
                   </>
                 ) : (
                   <>
-                    <Lock size={16} /> Initiate Payment Gateway (${total.toFixed(2)})
+                    <Lock size={16} /> Initiate Payment Gateway (₹{total})
                   </>
                 )}
               </button>

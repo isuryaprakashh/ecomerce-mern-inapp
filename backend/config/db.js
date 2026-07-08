@@ -10,7 +10,7 @@ export const seedProducts = [
   {
     name: "Rose Dew Infusion",
     description: "A hydrating, skin-refreshing mist made with 100% pure organic Bulgarian rose water. Instantly revives tired skin, restoring moisture and natural luminosity.",
-    price: 28,
+    price: 1299,
     category: "Mists",
     rating: 4.8,
     reviewsCount: 124,
@@ -21,7 +21,7 @@ export const seedProducts = [
   {
     name: "Nectar of Youth",
     description: "An ultra-concentrated facial serum combining Damascus rose oil and multi-weight hyaluronic acid to plump fine lines and deeply hydrate the dermal layers.",
-    price: 46,
+    price: 2499,
     category: "Serums",
     rating: 4.9,
     reviewsCount: 98,
@@ -32,7 +32,7 @@ export const seedProducts = [
   {
     name: "Velvet Petal Clay",
     description: "A purifying facial mask formulated with French pink clay, crushed rose petals, and soothing colloidal oatmeal. Detoxifies pores while keeping skin soft.",
-    price: 34,
+    price: 1599,
     category: "Masks",
     rating: 4.7,
     reviewsCount: 76,
@@ -43,7 +43,7 @@ export const seedProducts = [
   {
     name: "Rosehip Glow Elixir",
     description: "A cold-pressed organic rosehip seed oil rich in vitamins A and C. Brightens dark spots, evens skin tone, and delivers a velvety golden glow without greasy residue.",
-    price: 38,
+    price: 1899,
     category: "Oils",
     rating: 4.9,
     reviewsCount: 142,
@@ -54,18 +54,18 @@ export const seedProducts = [
   {
     name: "Petal Soft Cream",
     description: "A whipped daily moisturizer infused with active rose extract and squalane. Locks in moisture for 24 hours for a soft, petal-smooth finish.",
-    price: 42,
+    price: 1999,
     category: "Creams",
     rating: 4.6,
     reviewsCount: 88,
-    image: "https://item.tscimg.ca/TSC/1/11/110/0x0/110610.jpg?impolicy=XL?q=80&w=600&auto=format&fit=crop",
+    image: "https://item.tscimg.ca/TSC/1/11/110/0x0/110610.jpg?impolicy=XL",
     ingredients: "Water, Squalane, Rose Extract, Cetearyl Olivate, Sorbitan Olivate, Shea Butter, Allantoin.",
     benefits: "Provides long-lasting hydration, strengthens skin barrier, softens dry patches."
   },
   {
     name: "Satin Lip Polish",
     description: "A gentle exfoliating scrub made with organic rose extract and fine sugar crystals. Preps lips for color, leaving them satin-smooth and naturally tinted.",
-    price: 18,
+    price: 799,
     category: "Lips",
     rating: 4.5,
     reviewsCount: 54,

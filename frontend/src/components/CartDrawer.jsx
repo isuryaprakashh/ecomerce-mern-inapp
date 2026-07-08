@@ -12,8 +12,8 @@ export default function CartDrawer({
   if (!isOpen) return null;
 
   const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  const freeShippingThreshold = 75;
-  const shipping = subtotal >= freeShippingThreshold ? 0 : (subtotal > 0 ? 5.99 : 0);
+  const freeShippingThreshold = 5000;
+  const shipping = subtotal >= freeShippingThreshold ? 0 : (subtotal > 0 ? 350 : 0);
   const total = subtotal + shipping;
 
   return (
@@ -51,7 +51,7 @@ export default function CartDrawer({
                 <div className="cart-item-details">
                   <div>
                     <h3 className="cart-item-name">{item.name}</h3>
-                    <span className="cart-item-price">${item.price} each</span>
+                    <span className="cart-item-price">₹{item.price} each</span>
                   </div>
                   
                   <div className="cart-item-controls">
@@ -96,9 +96,9 @@ export default function CartDrawer({
                 <span>
                   {subtotal >= freeShippingThreshold 
                     ? "✨ You qualify for Free Standard Shipping!" 
-                    : `Spend $${(freeShippingThreshold - subtotal).toFixed(2)} more for Free Shipping`}
+                    : `Spend ₹${freeShippingThreshold - subtotal} more for Free Shipping`}
                 </span>
-                <span>${subtotal.toFixed(2)} / ${freeShippingThreshold}</span>
+                <span>₹{subtotal} / ₹{freeShippingThreshold}</span>
               </div>
               <div style={{ 
                 height: '4px', 
@@ -117,15 +117,15 @@ export default function CartDrawer({
 
             <div className="summary-row">
               <span>Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>₹{subtotal}</span>
             </div>
             <div className="summary-row">
               <span>Shipping</span>
-              <span>{shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}</span>
+              <span>{shipping === 0 ? "FREE" : `₹${shipping}`}</span>
             </div>
             <div className="summary-row total">
               <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>₹{total}</span>
             </div>
 
             <button className="btn-primary" style={{ width: '100%' }} onClick={onCheckout}>

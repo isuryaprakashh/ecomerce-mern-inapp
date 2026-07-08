@@ -319,8 +319,8 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                     <input type="text" name="name" required value={formData.name} onChange={handleInputChange} className="form-input" placeholder="Rose Glow Essence" />
                   </div>
                   <div className="form-group" style={{ maxWidth: '200px' }}>
-                    <label className="form-label">Price (USD)</label>
-                    <input type="text" name="price" required value={formData.price} onChange={handleInputChange} className="form-input" placeholder="38" />
+                    <label className="form-label">Price (INR)</label>
+                    <input type="text" name="price" required value={formData.price} onChange={handleInputChange} className="form-input" placeholder="1590" />
                   </div>
                   <div className="form-group" style={{ maxWidth: '200px' }}>
                     <label className="form-label">Category</label>
@@ -375,7 +375,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                       </div>
                       <div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total Earnings</span>
-                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>${totalRevenue.toFixed(2)}</h4>
+                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>₹{totalRevenue}</h4>
                       </div>
                     </div>
 
@@ -395,7 +395,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                       </div>
                       <div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Avg Ticket Value</span>
-                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>${avgOrderValue.toFixed(2)}</h4>
+                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>₹{avgOrderValue.toFixed(0)}</h4>
                       </div>
                     </div>
 
@@ -454,7 +454,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                                 textAnchor="end"
                                 fontFamily="monospace"
                               >
-                                ${valLabel}
+                                ₹{valLabel}
                               </text>
                             </g>
                           );
@@ -498,11 +498,11 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                                 x={p.x} 
                                 y={p.y - 10} 
                                 fontSize="9" 
-                                fontWeight="600"
+                                fontWeight="600" 
                                 fill="var(--accent-rose)" 
                                 textAnchor="middle"
                               >
-                                ${p.amount.toFixed(0)}
+                                ₹{p.amount.toFixed(0)}
                               </text>
                             )}
                             {/* X-Axis day labels */}
@@ -553,7 +553,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                           <div style={{ minWidth: 0 }}>
                             <h4 style={{ fontSize: '1.3rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{p.name}</h4>
                             <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-light)', marginTop: '4px', display: 'block' }}>
-                              {p.category} — ${p.price}
+                              {p.category} — ₹{p.price}
                             </span>
                           </div>
                         </div>
@@ -643,7 +643,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                               <ul style={{ paddingLeft: '16px' }}>
                                 {o.items?.map((item, idx) => (
                                   <li key={idx}>
-                                    {item.name} (x{item.quantity}) — ${item.price}
+                                    {item.name} (x{item.quantity}) — ₹{item.price}
                                   </li>
                                 ))}
                               </ul>
@@ -652,7 +652,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                             <div style={{ textAlign: 'right' }}>
                               <h5 style={{ fontWeight: 600, textTransform: 'uppercase', fontSize: '0.75rem', marginBottom: '8px', color: 'var(--text-light)', letterSpacing: '0.05em' }}>Total Earnings</h5>
                               <span style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--accent-rose)' }}>
-                                ${parseFloat(o.amount).toFixed(2)}
+                                ₹{o.amount}
                               </span>
                               <div style={{ color: 'var(--text-light)', fontSize: '0.75rem', marginTop: '6px' }}>
                                 {new Date(o.createdAt).toLocaleString()}

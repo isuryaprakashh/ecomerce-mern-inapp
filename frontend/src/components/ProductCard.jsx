@@ -28,7 +28,7 @@ export default function ProductCard({ product, onClick }) {
         
         <div className="product-card-name-row">
           <h3 className="product-card-name">{name}</h3>
-          <span className="product-card-price">${price}</span>
+          <span className="product-card-price">₹{price}</span>
         </div>
 
         {/* Rating Row */}

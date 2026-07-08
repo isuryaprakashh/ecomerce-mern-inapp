@@ -99,14 +99,14 @@ export default function UserOrdersModal({ onClose }) {
                     <ul style={{ paddingLeft: '16px', listStyleType: 'disc', color: 'var(--text-secondary)' }}>
                       {order.items?.map((item, idx) => (
                         <li key={idx}>
-                          {item.name} (x{item.quantity}) — ${item.price}
+                          {item.name} (x{item.quantity}) — ₹{item.price}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-light)', display: 'block' }}>Total Paid</span>
-                    <strong style={{ fontSize: '1.2rem', color: 'var(--accent-rose)' }}>${parseFloat(order.amount).toFixed(2)}</strong>
+                    <strong style={{ fontSize: '1.2rem', color: 'var(--accent-rose)' }}>₹{order.amount}</strong>
                   </div>
                 </div>
               </div>
