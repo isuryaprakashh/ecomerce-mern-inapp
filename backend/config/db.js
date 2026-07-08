@@ -4,6 +4,7 @@ import Product from '../models/Product.js';
 import Order from '../models/Order.js';
 
 let isMongoConnected = false;
+let lastConnectionError = null;
 
 // Default seed products to use if database is empty or connection fails
 export const seedProducts = [
@@ -116,9 +117,12 @@ export const connectDB = async () => {
     console.error(`❌ MongoDB connection error: ${error.message}`);
     console.log("⚠️ Running in MEMORY-ONLY fallback mode due to database connection failure.");
     isMongoConnected = false;
+    lastConnectionError = error.message;
     return false;
   }
 };
+
+export const getDBError = () => lastConnectionError;
 
 export const checkMongoConnection = () => {
   if (mongoose.connection.readyState === 1) {

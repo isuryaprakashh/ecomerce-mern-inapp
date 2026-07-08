@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
+import { connectDB, checkMongoConnection, getDBError } from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import authRoutes from './routes/authRoutes.js';
@@ -27,6 +27,16 @@ connectDB();
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/auth', authRoutes);
+
+// Diagnostics endpoint to find the exact Mongoose error on live Vercel
+app.get('/api/db-status', (req, res) => {
+  res.json({
+    connected: checkMongoConnection(),
+    error: getDBError(),
+    hasUri: !!process.env.MONGODB_URI,
+    uriPrefix: process.env.MONGODB_URI ? process.env.MONGODB_URI.substring(0, 20) + '...' : null
+  });
+});
 
 // Base route for status checks
 app.get('/', (req, res) => {
