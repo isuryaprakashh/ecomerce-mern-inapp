@@ -20,8 +20,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Database connection
-connectDB();
+// Database connection middleware (critical for serverless await handshakes)
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 
 // API Routes
 app.use('/api/products', productRoutes);

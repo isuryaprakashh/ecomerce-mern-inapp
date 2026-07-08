@@ -125,10 +125,5 @@ export const connectDB = async () => {
 export const getDBError = () => lastConnectionError;
 
 export const checkMongoConnection = () => {
-  if (mongoose.connection.readyState === 1) {
-    return true;
-  }
-  // Try to connect asynchronously in the background so future requests can succeed
-  connectDB().catch(e => console.error("On-demand DB connection failed:", e.message));
-  return false;
+  return mongoose.connection.readyState === 1;
 };
