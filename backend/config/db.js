@@ -58,7 +58,7 @@ export const seedProducts = [
     category: "Creams",
     rating: 4.6,
     reviewsCount: 88,
-    image: "https://images.unsplash.com/photo-1601049676099-e7ed07d825b0?q=80&w=600&auto=format&fit=crop",
+    image: "https://item.tscimg.ca/TSC/1/11/110/0x0/110610.jpg?impolicy=XL?q=80&w=600&auto=format&fit=crop",
     ingredients: "Water, Squalane, Rose Extract, Cetearyl Olivate, Sorbitan Olivate, Shea Butter, Allantoin.",
     benefits: "Provides long-lasting hydration, strengthens skin barrier, softens dry patches."
   },
