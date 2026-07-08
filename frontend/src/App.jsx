@@ -32,6 +32,7 @@ export default function App() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isOrdersOpen, setIsOrdersOpen] = useState(false);
+  const [pendingCheckout, setPendingCheckout] = useState(false);
 
   // Cart State
   const [cartItems, setCartItems] = useState(() => {
@@ -128,7 +129,12 @@ export default function App() {
 
   const handleCheckoutSubmit = () => {
     setIsCartOpen(false);
-    setIsCheckoutOpen(true);
+    if (!currentUser) {
+      setPendingCheckout(true);
+      setIsAuthOpen(true);
+    } else {
+      setIsCheckoutOpen(true);
+    }
   };
 
   const handleOrderComplete = (details) => {
@@ -314,11 +320,17 @@ export default function App() {
       {/* Auth Modal */}
       {isAuthOpen && (
         <AuthModal 
-          onClose={() => setIsAuthOpen(false)}
+          onClose={() => {
+            setIsAuthOpen(false);
+            setPendingCheckout(false);
+          }}
           onAuthSuccess={(user) => {
             setCurrentUser(user);
             if (user.role === 'admin') {
               setIsAdminOpen(true);
+            } else if (pendingCheckout) {
+              setPendingCheckout(false);
+              setIsCheckoutOpen(true);
             }
           }}
         />

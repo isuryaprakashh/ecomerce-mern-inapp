@@ -36,7 +36,7 @@ export default function Hero({ onExploreClick }) {
         <div className="hero-image-wrapper">
           <div className="hero-image-container">
             <img 
-              src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop" 
+              src="https://cdn.shopify.com/s/files/1/0609/6096/4855/files/Morningglorywithmattesunscreen_d18a7d38-17f9-4539-89b6-078ce7ca5bb3_1.jpg?v=1697093438&width=1080&quality=60?q=80&w=800&auto=format&fit=crop" 
               alt="Rose Bud Skincare bottle surrounded by fresh pink roses and water splashes" 
               className="hero-img"
             />
