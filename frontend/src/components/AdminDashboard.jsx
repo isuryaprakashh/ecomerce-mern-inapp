@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { X, Plus, Trash2, Edit, Check, RefreshCw, ShoppingBag, Shield, LogOut, ArrowLeft, TrendingUp, BarChart2, DollarSign } from 'lucide-react';
+import { X, Plus, Trash2, Edit, Check, RefreshCw, ShoppingBag, Shield, LogOut, ArrowLeft, TrendingUp, BarChart2, DollarSign, Menu } from 'lucide-react';
 import { api } from '../utils/api.js';
 
 export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, currentUser }) {
   const [activeTab, setActiveTab] = useState('analytics'); // 'analytics' | 'products' | 'orders'
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -186,7 +187,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
       animation: 'fadeIn 0.3s ease-out'
     }}>
       {/* --- FOCUSED ADMIN NAVBAR --- */}
-      <nav className="admin-nav">
+      <nav className="admin-nav" style={{ position: 'relative' }}>
         {/* Brand with Admin indicator */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <span style={{ 
@@ -214,8 +215,8 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
           </span>
         </div>
 
-        {/* Navigation Tabs */}
-        <div className="admin-nav-tabs">
+        {/* Desktop-only Navigation Tabs */}
+        <div className="admin-nav-tabs admin-desktop-only">
           <button 
             className="admin-nav-tab-btn"
             style={{
@@ -248,8 +249,8 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
           </button>
         </div>
 
-        {/* Admin actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        {/* Desktop-only Log Out */}
+        <div className="admin-desktop-only" style={{ display: 'flex', alignItems: 'center' }}>
           <button 
             style={{
               background: 'none',
@@ -267,6 +268,67 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
             <LogOut size={16} /> Log Out
           </button>
         </div>
+
+        {/* Mobile menu toggle */}
+        <button 
+          className="admin-mobile-toggle"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle admin mobile navigation"
+        >
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+
+        {/* Mobile-only Collapsible Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="admin-mobile-menu">
+            <button 
+              className="admin-mobile-menu-btn" 
+              style={{ 
+                fontWeight: activeTab === 'analytics' ? '600' : '400',
+                borderLeft: activeTab === 'analytics' ? '2px solid var(--accent-rose)' : 'none',
+                color: activeTab === 'analytics' ? 'var(--text-primary)' : 'var(--text-light)'
+              }}
+              onClick={() => { setActiveTab('analytics'); setIsEditing(false); setIsMobileMenuOpen(false); }}
+            >
+              Analytics Overview
+            </button>
+            <button 
+              className="admin-mobile-menu-btn" 
+              style={{ 
+                fontWeight: activeTab === 'products' ? '600' : '400',
+                borderLeft: activeTab === 'products' ? '2px solid var(--accent-rose)' : 'none',
+                color: activeTab === 'products' ? 'var(--text-primary)' : 'var(--text-light)'
+              }}
+              onClick={() => { setActiveTab('products'); setIsEditing(false); setIsMobileMenuOpen(false); }}
+            >
+              Manage Catalog
+            </button>
+            <button 
+              className="admin-mobile-menu-btn" 
+              style={{ 
+                fontWeight: activeTab === 'orders' ? '600' : '400',
+                borderLeft: activeTab === 'orders' ? '2px solid var(--accent-rose)' : 'none',
+                color: activeTab === 'orders' ? 'var(--text-primary)' : 'var(--text-light)'
+              }}
+              onClick={() => { setActiveTab('orders'); setIsEditing(false); setIsMobileMenuOpen(false); }}
+            >
+              Client Orders
+            </button>
+            <button 
+              className="admin-mobile-menu-btn" 
+              style={{ 
+                color: 'var(--text-light)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px', 
+                marginTop: '8px' 
+              }}
+              onClick={() => { setIsMobileMenuOpen(false); onLogout(); }}
+            >
+              <LogOut size={16} /> Log Out
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* --- SIDEBAR PANEL CONTENT --- */}

@@ -36,7 +36,7 @@ export default function Hero({ onExploreClick }) {
         <div className="hero-image-wrapper">
           <div className="hero-image-container">
             <img 
-              src="https://smytten-image.gumlet.io/shop_item/FXT0016BB1N1.jpg?v=1697093438&width=1080&quality=60?q=80&w=800&auto=format&fit=crop" 
+              src="https://smytten-image.gumlet.io/shop_item/FXT0016BB1N1.jpg?v=1697093438&width=1080&quality=100?q=80&w=800&auto=format&fit=crop" 
               alt="Rose Bud Skincare bottle surrounded by fresh pink roses and water splashes" 
               className="hero-img"
             />
