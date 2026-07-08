@@ -80,7 +80,10 @@ router.post('/create', async (req, res) => {
         const order = new Order(newOrderData);
         await order.save();
       } else {
-        memoryOrders.push(newOrderData);
+        memoryOrders.push({
+          ...newOrderData,
+          createdAt: new Date()
+        });
       }
 
       return res.json({
@@ -112,7 +115,10 @@ router.post('/create', async (req, res) => {
         const order = new Order(newOrderData);
         await order.save();
       } else {
-        memoryOrders.push(newOrderData);
+        memoryOrders.push({
+          ...newOrderData,
+          createdAt: new Date()
+        });
       }
 
       return res.json({
