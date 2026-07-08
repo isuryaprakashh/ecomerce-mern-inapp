@@ -43,28 +43,7 @@ export default function Hero({ onExploreClick }) {
             />
           </div>
 
-          {/* Luxury Floating Tag */}
-          <div className="hero-floating-card glass">
-            <div className="flex-center" style={{ gap: '12px', justifyContent: 'flex-start' }}>
-              <div style={{
-                backgroundColor: 'var(--bg-tertiary)',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--accent-rose)',
-                fontSize: '1.2rem'
-              }}>
-                🌹
-              </div>
-              <div>
-                <h3 className="floating-card-title">Pure Damascus Rose</h3>
-                <p className="floating-card-text">Every drop contains essences of over 100 hand-picked rose petals.</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </header>
