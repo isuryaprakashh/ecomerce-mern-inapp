@@ -186,15 +186,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
       animation: 'fadeIn 0.3s ease-out'
     }}>
       {/* --- FOCUSED ADMIN NAVBAR --- */}
-      <nav style={{
-        height: '80px',
-        borderBottom: '1px solid var(--border-color)',
-        padding: '0 40px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: 'var(--bg-secondary)'
-      }}>
+      <nav className="admin-nav">
         {/* Brand with Admin indicator */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <span style={{ 
@@ -223,50 +215,32 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
         </div>
 
         {/* Navigation Tabs */}
-        <div style={{ display: 'flex', gap: '30px' }}>
+        <div className="admin-nav-tabs">
           <button 
+            className="admin-nav-tab-btn"
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              padding: '28px 0',
               color: activeTab === 'analytics' ? 'var(--text-primary)' : 'var(--text-light)',
               borderBottom: activeTab === 'analytics' ? '2px solid var(--accent-rose)' : '2px solid transparent',
-              transition: 'all 0.2s'
             }}
             onClick={() => { setActiveTab('analytics'); setIsEditing(false); }}
           >
             Analytics Overview
           </button>
           <button 
+            className="admin-nav-tab-btn"
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              padding: '28px 0',
               color: activeTab === 'products' ? 'var(--text-primary)' : 'var(--text-light)',
               borderBottom: activeTab === 'products' ? '2px solid var(--accent-rose)' : '2px solid transparent',
-              transition: 'all 0.2s'
             }}
             onClick={() => { setActiveTab('products'); setIsEditing(false); }}
           >
             Manage Catalog
           </button>
           <button 
+            className="admin-nav-tab-btn"
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              padding: '28px 0',
               color: activeTab === 'orders' ? 'var(--text-primary)' : 'var(--text-light)',
               borderBottom: activeTab === 'orders' ? '2px solid var(--accent-rose)' : '2px solid transparent',
-              transition: 'all 0.2s'
             }}
             onClick={() => { setActiveTab('orders'); setIsEditing(false); }}
           >
@@ -296,7 +270,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
       </nav>
 
       {/* --- SIDEBAR PANEL CONTENT --- */}
-      <div style={{ flexGrow: 1, overflowY: 'auto', padding: '50px 40px' }}>
+      <div className="admin-body">
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
           {isEditing ? (
