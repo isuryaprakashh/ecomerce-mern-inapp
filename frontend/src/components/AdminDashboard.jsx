@@ -411,7 +411,7 @@ export default function AdminDashboard({ onClose, onProductsUpdated, onLogout, c
                       </div>
                       <div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total Earnings</span>
-                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>₹{totalRevenue}</h4>
+                        <h4 style={{ fontSize: '1.8rem', fontWeight: 600, marginTop: '2px' }}>₹{totalRevenue.toFixed(2)}</h4>
                       </div>
                     </div>
 
