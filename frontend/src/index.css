@@ -366,11 +366,32 @@ a {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding-top: 100px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
-    padding: 60px 0;
-    gap: 60px;
+    gap: 40px;
     text-align: center;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-image-wrapper {
+    order: 1;
+  }
+
+  .hero-floating-card {
+    display: block !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    max-width: calc(100% - 40px) !important;
+    opacity: 1 !important;
+    padding: 16px !important;
+    text-align: left;
   }
 }
 
